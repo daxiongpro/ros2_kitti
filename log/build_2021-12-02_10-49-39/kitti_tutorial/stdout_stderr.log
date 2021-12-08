@@ -1,0 +1,31 @@
+running egg_info
+creating ../../build/kitti_tutorial/kitti_tutorial.egg-info
+writing ../../build/kitti_tutorial/kitti_tutorial.egg-info/PKG-INFO
+writing dependency_links to ../../build/kitti_tutorial/kitti_tutorial.egg-info/dependency_links.txt
+writing entry points to ../../build/kitti_tutorial/kitti_tutorial.egg-info/entry_points.txt
+writing requirements to ../../build/kitti_tutorial/kitti_tutorial.egg-info/requires.txt
+writing top-level names to ../../build/kitti_tutorial/kitti_tutorial.egg-info/top_level.txt
+writing manifest file '../../build/kitti_tutorial/kitti_tutorial.egg-info/SOURCES.txt'
+reading manifest file '../../build/kitti_tutorial/kitti_tutorial.egg-info/SOURCES.txt'
+writing manifest file '../../build/kitti_tutorial/kitti_tutorial.egg-info/SOURCES.txt'
+running build
+running build_py
+creating /home/daxiongpro/code/colcon_ws/build/kitti_tutorial/build
+creating /home/daxiongpro/code/colcon_ws/build/kitti_tutorial/build/lib
+creating /home/daxiongpro/code/colcon_ws/build/kitti_tutorial/build/lib/kitti_tutorial
+copying kitti_tutorial/__init__.py -> /home/daxiongpro/code/colcon_ws/build/kitti_tutorial/build/lib/kitti_tutorial
+running install
+running install_lib
+creating /home/daxiongpro/code/colcon_ws/install/kitti_tutorial/lib/python3.8/site-packages/kitti_tutorial
+copying /home/daxiongpro/code/colcon_ws/build/kitti_tutorial/build/lib/kitti_tutorial/__init__.py -> /home/daxiongpro/code/colcon_ws/install/kitti_tutorial/lib/python3.8/site-packages/kitti_tutorial
+byte-compiling /home/daxiongpro/code/colcon_ws/install/kitti_tutorial/lib/python3.8/site-packages/kitti_tutorial/__init__.py to __init__.cpython-38.pyc
+running install_data
+creating /home/daxiongpro/code/colcon_ws/install/kitti_tutorial/share/ament_index
+creating /home/daxiongpro/code/colcon_ws/install/kitti_tutorial/share/ament_index/resource_index
+creating /home/daxiongpro/code/colcon_ws/install/kitti_tutorial/share/ament_index/resource_index/packages
+copying resource/kitti_tutorial -> /home/daxiongpro/code/colcon_ws/install/kitti_tutorial/share/ament_index/resource_index/packages
+copying package.xml -> /home/daxiongpro/code/colcon_ws/install/kitti_tutorial/share/kitti_tutorial
+running install_egg_info
+Copying ../../build/kitti_tutorial/kitti_tutorial.egg-info to /home/daxiongpro/code/colcon_ws/install/kitti_tutorial/lib/python3.8/site-packages/kitti_tutorial-0.0.0-py3.8.egg-info
+running install_scripts
+writing list of installed files to '/home/daxiongpro/code/colcon_ws/build/kitti_tutorial/install.log'

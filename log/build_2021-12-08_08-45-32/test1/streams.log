@@ -1,0 +1,21 @@
+[0.508s] Invoking command in '/home/daxiongpro/code/colcon_ws/src/test1': CONDA_PROMPT_MODIFIER=(base) PYTHONPATH=/home/daxiongpro/code/colcon_ws/install/test1/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py egg_info --egg-base ../../build/test1 build --build-base /home/daxiongpro/code/colcon_ws/build/test1/build install --prefix /home/daxiongpro/code/colcon_ws/install/test1 --record /home/daxiongpro/code/colcon_ws/build/test1/install.log --single-version-externally-managed
+[0.725s] running egg_info
+[0.726s] writing ../../build/test1/test1.egg-info/PKG-INFO
+[0.726s] writing dependency_links to ../../build/test1/test1.egg-info/dependency_links.txt
+[0.726s] writing entry points to ../../build/test1/test1.egg-info/entry_points.txt
+[0.726s] writing requirements to ../../build/test1/test1.egg-info/requires.txt
+[0.727s] writing top-level names to ../../build/test1/test1.egg-info/top_level.txt
+[0.761s] reading manifest file '../../build/test1/test1.egg-info/SOURCES.txt'
+[0.762s] writing manifest file '../../build/test1/test1.egg-info/SOURCES.txt'
+[0.762s] running build
+[0.762s] running build_py
+[0.763s] running install
+[0.763s] running install_lib
+[0.765s] running install_data
+[0.765s] running install_egg_info
+[0.766s] removing '/home/daxiongpro/code/colcon_ws/install/test1/lib/python3.8/site-packages/test1-0.0.0-py3.8.egg-info' (and everything under it)
+[0.767s] Copying ../../build/test1/test1.egg-info to /home/daxiongpro/code/colcon_ws/install/test1/lib/python3.8/site-packages/test1-0.0.0-py3.8.egg-info
+[0.768s] running install_scripts
+[0.785s] Installing dingyue_node script to /home/daxiongpro/code/colcon_ws/install/test1/lib/test1
+[0.785s] writing list of installed files to '/home/daxiongpro/code/colcon_ws/build/test1/install.log'
+[0.810s] Invoked command in '/home/daxiongpro/code/colcon_ws/src/test1' returned '0': CONDA_PROMPT_MODIFIER=(base) PYTHONPATH=/home/daxiongpro/code/colcon_ws/install/test1/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py egg_info --egg-base ../../build/test1 build --build-base /home/daxiongpro/code/colcon_ws/build/test1/build install --prefix /home/daxiongpro/code/colcon_ws/install/test1 --record /home/daxiongpro/code/colcon_ws/build/test1/install.log --single-version-externally-managed

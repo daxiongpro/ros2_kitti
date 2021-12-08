@@ -1,0 +1,37 @@
+[0.523s] Invoking command in '/home/daxiongpro/code/colcon_ws/src/test1': PYTHONPATH=/home/daxiongpro/code/colcon_ws/install/test1/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py egg_info --egg-base ../../build/test1 build --build-base /home/daxiongpro/code/colcon_ws/build/test1/build install --prefix /home/daxiongpro/code/colcon_ws/install/test1 --record /home/daxiongpro/code/colcon_ws/build/test1/install.log --single-version-externally-managed
+[0.760s] running egg_info
+[0.760s] creating ../../build/test1/test1.egg-info
+[0.761s] writing ../../build/test1/test1.egg-info/PKG-INFO
+[0.761s] writing dependency_links to ../../build/test1/test1.egg-info/dependency_links.txt
+[0.761s] writing entry points to ../../build/test1/test1.egg-info/entry_points.txt
+[0.761s] writing requirements to ../../build/test1/test1.egg-info/requires.txt
+[0.762s] writing top-level names to ../../build/test1/test1.egg-info/top_level.txt
+[0.762s] writing manifest file '../../build/test1/test1.egg-info/SOURCES.txt'
+[0.798s] reading manifest file '../../build/test1/test1.egg-info/SOURCES.txt'
+[0.799s] writing manifest file '../../build/test1/test1.egg-info/SOURCES.txt'
+[0.799s] running build
+[0.800s] running build_py
+[0.800s] creating /home/daxiongpro/code/colcon_ws/build/test1/build
+[0.800s] creating /home/daxiongpro/code/colcon_ws/build/test1/build/lib
+[0.800s] creating /home/daxiongpro/code/colcon_ws/build/test1/build/lib/test1
+[0.800s] copying test1/__init__.py -> /home/daxiongpro/code/colcon_ws/build/test1/build/lib/test1
+[0.801s] copying test1/test2.py -> /home/daxiongpro/code/colcon_ws/build/test1/build/lib/test1
+[0.801s] running install
+[0.801s] running install_lib
+[0.802s] creating /home/daxiongpro/code/colcon_ws/install/test1/lib/python3.8/site-packages/test1
+[0.802s] copying /home/daxiongpro/code/colcon_ws/build/test1/build/lib/test1/__init__.py -> /home/daxiongpro/code/colcon_ws/install/test1/lib/python3.8/site-packages/test1
+[0.802s] copying /home/daxiongpro/code/colcon_ws/build/test1/build/lib/test1/test2.py -> /home/daxiongpro/code/colcon_ws/install/test1/lib/python3.8/site-packages/test1
+[0.802s] byte-compiling /home/daxiongpro/code/colcon_ws/install/test1/lib/python3.8/site-packages/test1/__init__.py to __init__.cpython-38.pyc
+[0.803s] byte-compiling /home/daxiongpro/code/colcon_ws/install/test1/lib/python3.8/site-packages/test1/test2.py to test2.cpython-38.pyc
+[0.804s] running install_data
+[0.804s] creating /home/daxiongpro/code/colcon_ws/install/test1/share/ament_index
+[0.804s] creating /home/daxiongpro/code/colcon_ws/install/test1/share/ament_index/resource_index
+[0.805s] creating /home/daxiongpro/code/colcon_ws/install/test1/share/ament_index/resource_index/packages
+[0.805s] copying resource/test1 -> /home/daxiongpro/code/colcon_ws/install/test1/share/ament_index/resource_index/packages
+[0.805s] copying package.xml -> /home/daxiongpro/code/colcon_ws/install/test1/share/test1
+[0.805s] running install_egg_info
+[0.806s] Copying ../../build/test1/test1.egg-info to /home/daxiongpro/code/colcon_ws/install/test1/lib/python3.8/site-packages/test1-0.0.0-py3.8.egg-info
+[0.807s] running install_scripts
+[0.827s] Installing dingyue_node script to /home/daxiongpro/code/colcon_ws/install/test1/lib/test1
+[0.827s] writing list of installed files to '/home/daxiongpro/code/colcon_ws/build/test1/install.log'
+[0.856s] Invoked command in '/home/daxiongpro/code/colcon_ws/src/test1' returned '0': PYTHONPATH=/home/daxiongpro/code/colcon_ws/install/test1/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py egg_info --egg-base ../../build/test1 build --build-base /home/daxiongpro/code/colcon_ws/build/test1/build install --prefix /home/daxiongpro/code/colcon_ws/install/test1 --record /home/daxiongpro/code/colcon_ws/build/test1/install.log --single-version-externally-managed

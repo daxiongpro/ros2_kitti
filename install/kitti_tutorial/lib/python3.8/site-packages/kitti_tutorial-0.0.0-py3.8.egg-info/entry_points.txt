@@ -1,0 +1,3 @@
+[console_scripts]
+kitti_node = kitti_tutorial.kitti:main
+

@@ -1,0 +1,33 @@
+[0.265s] Invoking command in '/home/daxiongpro/code/colcon_ws/src/kitti_tutorial': CONDA_PROMPT_MODIFIER=(ros2) PYTHONPATH=/home/daxiongpro/code/colcon_ws/install/kitti_tutorial/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py egg_info --egg-base ../../build/kitti_tutorial build --build-base /home/daxiongpro/code/colcon_ws/build/kitti_tutorial/build install --prefix /home/daxiongpro/code/colcon_ws/install/kitti_tutorial --record /home/daxiongpro/code/colcon_ws/build/kitti_tutorial/install.log --single-version-externally-managed
+[0.473s] running egg_info
+[0.474s] writing ../../build/kitti_tutorial/kitti_tutorial.egg-info/PKG-INFO
+[0.474s] writing dependency_links to ../../build/kitti_tutorial/kitti_tutorial.egg-info/dependency_links.txt
+[0.474s] writing entry points to ../../build/kitti_tutorial/kitti_tutorial.egg-info/entry_points.txt
+[0.474s] writing requirements to ../../build/kitti_tutorial/kitti_tutorial.egg-info/requires.txt
+[0.474s] writing top-level names to ../../build/kitti_tutorial/kitti_tutorial.egg-info/top_level.txt
+[0.508s] reading manifest file '../../build/kitti_tutorial/kitti_tutorial.egg-info/SOURCES.txt'
+[0.509s] writing manifest file '../../build/kitti_tutorial/kitti_tutorial.egg-info/SOURCES.txt'
+[0.509s] running build
+[0.510s] running build_py
+[0.510s] copying kitti_tutorial/data_utils.py -> /home/daxiongpro/code/colcon_ws/build/kitti_tutorial/build/lib/kitti_tutorial
+[0.510s] copying kitti_tutorial/kitti.py -> /home/daxiongpro/code/colcon_ws/build/kitti_tutorial/build/lib/kitti_tutorial
+[0.510s] copying kitti_tutorial/publish_utils.py -> /home/daxiongpro/code/colcon_ws/build/kitti_tutorial/build/lib/kitti_tutorial
+[0.510s] copying kitti_tutorial/utils.py -> /home/daxiongpro/code/colcon_ws/build/kitti_tutorial/build/lib/kitti_tutorial
+[0.511s] running install
+[0.511s] running install_lib
+[0.511s] copying /home/daxiongpro/code/colcon_ws/build/kitti_tutorial/build/lib/kitti_tutorial/data_utils.py -> /home/daxiongpro/code/colcon_ws/install/kitti_tutorial/lib/python3.8/site-packages/kitti_tutorial
+[0.512s] copying /home/daxiongpro/code/colcon_ws/build/kitti_tutorial/build/lib/kitti_tutorial/kitti.py -> /home/daxiongpro/code/colcon_ws/install/kitti_tutorial/lib/python3.8/site-packages/kitti_tutorial
+[0.512s] copying /home/daxiongpro/code/colcon_ws/build/kitti_tutorial/build/lib/kitti_tutorial/publish_utils.py -> /home/daxiongpro/code/colcon_ws/install/kitti_tutorial/lib/python3.8/site-packages/kitti_tutorial
+[0.512s] copying /home/daxiongpro/code/colcon_ws/build/kitti_tutorial/build/lib/kitti_tutorial/utils.py -> /home/daxiongpro/code/colcon_ws/install/kitti_tutorial/lib/python3.8/site-packages/kitti_tutorial
+[0.512s] byte-compiling /home/daxiongpro/code/colcon_ws/install/kitti_tutorial/lib/python3.8/site-packages/kitti_tutorial/data_utils.py to data_utils.cpython-38.pyc
+[0.514s] byte-compiling /home/daxiongpro/code/colcon_ws/install/kitti_tutorial/lib/python3.8/site-packages/kitti_tutorial/kitti.py to kitti.cpython-38.pyc
+[0.514s] byte-compiling /home/daxiongpro/code/colcon_ws/install/kitti_tutorial/lib/python3.8/site-packages/kitti_tutorial/publish_utils.py to publish_utils.cpython-38.pyc
+[0.516s] byte-compiling /home/daxiongpro/code/colcon_ws/install/kitti_tutorial/lib/python3.8/site-packages/kitti_tutorial/utils.py to utils.cpython-38.pyc
+[0.517s] running install_data
+[0.517s] running install_egg_info
+[0.519s] removing '/home/daxiongpro/code/colcon_ws/install/kitti_tutorial/lib/python3.8/site-packages/kitti_tutorial-0.0.0-py3.8.egg-info' (and everything under it)
+[0.519s] Copying ../../build/kitti_tutorial/kitti_tutorial.egg-info to /home/daxiongpro/code/colcon_ws/install/kitti_tutorial/lib/python3.8/site-packages/kitti_tutorial-0.0.0-py3.8.egg-info
+[0.520s] running install_scripts
+[0.537s] Installing kitti_node script to /home/daxiongpro/code/colcon_ws/install/kitti_tutorial/lib/kitti_tutorial
+[0.538s] writing list of installed files to '/home/daxiongpro/code/colcon_ws/build/kitti_tutorial/install.log'
+[0.562s] Invoked command in '/home/daxiongpro/code/colcon_ws/src/kitti_tutorial' returned '0': CONDA_PROMPT_MODIFIER=(ros2) PYTHONPATH=/home/daxiongpro/code/colcon_ws/install/kitti_tutorial/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py egg_info --egg-base ../../build/kitti_tutorial build --build-base /home/daxiongpro/code/colcon_ws/build/kitti_tutorial/build install --prefix /home/daxiongpro/code/colcon_ws/install/kitti_tutorial --record /home/daxiongpro/code/colcon_ws/build/kitti_tutorial/install.log --single-version-externally-managed

@@ -1,0 +1,22 @@
+[0.262s] Invoking command in '/home/daxiongpro/code/colcon_ws/src/kitti_tutorial': PYTHONPATH=/home/daxiongpro/code/colcon_ws/install/kitti_tutorial/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py egg_info --egg-base ../../build/kitti_tutorial build --build-base /home/daxiongpro/code/colcon_ws/build/kitti_tutorial/build install --prefix /home/daxiongpro/code/colcon_ws/install/kitti_tutorial --record /home/daxiongpro/code/colcon_ws/build/kitti_tutorial/install.log --single-version-externally-managed
+[0.487s] running egg_info
+[0.488s] writing ../../build/kitti_tutorial/kitti_tutorial.egg-info/PKG-INFO
+[0.488s] writing dependency_links to ../../build/kitti_tutorial/kitti_tutorial.egg-info/dependency_links.txt
+[0.488s] writing entry points to ../../build/kitti_tutorial/kitti_tutorial.egg-info/entry_points.txt
+[0.488s] writing requirements to ../../build/kitti_tutorial/kitti_tutorial.egg-info/requires.txt
+[0.488s] writing top-level names to ../../build/kitti_tutorial/kitti_tutorial.egg-info/top_level.txt
+[0.525s] reading manifest file '../../build/kitti_tutorial/kitti_tutorial.egg-info/SOURCES.txt'
+[0.526s] writing manifest file '../../build/kitti_tutorial/kitti_tutorial.egg-info/SOURCES.txt'
+[0.526s] running build
+[0.528s] running build_py
+[0.531s] running install
+[0.533s] running install_lib
+[0.536s] running install_data
+[0.537s] copying package.xml -> /home/daxiongpro/code/colcon_ws/install/kitti_tutorial/share/kitti_tutorial
+[0.537s] running install_egg_info
+[0.537s] removing '/home/daxiongpro/code/colcon_ws/install/kitti_tutorial/lib/python3.8/site-packages/kitti_tutorial-0.0.0-py3.8.egg-info' (and everything under it)
+[0.537s] Copying ../../build/kitti_tutorial/kitti_tutorial.egg-info to /home/daxiongpro/code/colcon_ws/install/kitti_tutorial/lib/python3.8/site-packages/kitti_tutorial-0.0.0-py3.8.egg-info
+[0.537s] running install_scripts
+[0.551s] Installing kitti_node script to /home/daxiongpro/code/colcon_ws/install/kitti_tutorial/lib/kitti_tutorial
+[0.551s] writing list of installed files to '/home/daxiongpro/code/colcon_ws/build/kitti_tutorial/install.log'
+[0.578s] Invoked command in '/home/daxiongpro/code/colcon_ws/src/kitti_tutorial' returned '0': PYTHONPATH=/home/daxiongpro/code/colcon_ws/install/kitti_tutorial/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py egg_info --egg-base ../../build/kitti_tutorial build --build-base /home/daxiongpro/code/colcon_ws/build/kitti_tutorial/build install --prefix /home/daxiongpro/code/colcon_ws/install/kitti_tutorial --record /home/daxiongpro/code/colcon_ws/build/kitti_tutorial/install.log --single-version-externally-managed

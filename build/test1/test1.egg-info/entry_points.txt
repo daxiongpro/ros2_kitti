@@ -1,0 +1,3 @@
+[console_scripts]
+dingyue_node = test1.test2:main
+
