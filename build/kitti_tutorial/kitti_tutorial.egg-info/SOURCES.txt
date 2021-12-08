@@ -12,6 +12,7 @@ kitti_tutorial/__init__.py
 kitti_tutorial/data_utils.py
 kitti_tutorial/kitti.py
 kitti_tutorial/kitti_utils.py
+kitti_tutorial/pcd_publisher_node.py
 kitti_tutorial/publish_utils.py
 kitti_tutorial/utils.py
 resource/kitti_tutorial
