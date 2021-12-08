@@ -43,7 +43,11 @@ def publish_camera(cam_pub, bridge, image, borders_2d_cam2s=None, object_types=N
             else:
                 cv2.rectangle(image, top_left, bottom_right,
                               DETECTION_COLOR_MAP[object_types[i]], 2)
-    cam_pub.publish(bridge.cv2_to_imgmsg(image, "bgr8"))
+
+    image_temp = bridge.cv2_to_imgmsg(image, "bgr8")
+    # header = Header(stamp=rospy.Time.now())
+    image_temp.header.frame_id = 'map'
+    cam_pub.publish(image_temp)
 
 def create_point_cloud(points, parent_frame):
     """ Creates a point cloud message.

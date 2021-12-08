@@ -14,13 +14,13 @@ class KittiNode(Node):
     def __init__(self, name):
         super().__init__(name)
         self.get_logger().info("大家好，我是%s！" % name)
-        # self.cam_pub = self.create_publisher(
-        #     Image, 'kitti_cam', 10)
+        self.cam_pub = self.create_publisher(
+            Image, 'kitti_cam', 10)
 
 
         self.pcl_pub = self.create_publisher(PointCloud2,
                                                        'kitti_point_cloud', 10)
-        # self.bridge = CvBridge()
+        self.bridge = CvBridge()
         # self.ego_pub = self.create_publisher.Publisher(
         #     Marker, 'kitti_ego_car', queue_size=10)
 
@@ -66,8 +66,8 @@ class KittiNode(Node):
         # track_ids = np.append(track_ids, 1000)  # append ego car
 
         # read data
-        # image = read_camera(os.path.join(
-        #     DATA_PATH, 'data_tracking_image_2/training/image_02/0000/%06d.png' % self.frame))
+        image = read_camera(os.path.join(
+            DATA_PATH, 'data_tracking_image_2/training/image_02/0000/%06d.png' % self.frame))
 
         point_cloud = read_point_cloud(os.path.join(
             DATA_PATH, 'data_tracking_velodyne/training/velodyne/0000/%06d.bin' % self.frame))
@@ -109,9 +109,8 @@ class KittiNode(Node):
 
         # publish
         # publish_camera(self.cam_pub, self.bridge, image, boxes_2d, types)
-        # publish_camera(self.cam_pub, self.bridge, image)
-
-        publish_point_cloud(self.pcl_pub, point_cloud[::])
+        publish_camera(self.cam_pub, self.bridge, image)
+        publish_point_cloud(self.pcl_pub, point_cloud[::2])
         # publish_ego_car(ego_pub)
 
         # publish_imu(imu_pub, imu_data)
