@@ -17,12 +17,11 @@ class KittiNode(Node):
         self.cam_pub = self.create_publisher(
             Image, 'kitti_cam', 10)
 
-
         self.pcl_pub = self.create_publisher(PointCloud2,
-                                                       'kitti_point_cloud', 10)
+                                             'kitti_point_cloud', 10)
         self.bridge = CvBridge()
-        # self.ego_pub = self.create_publisher.Publisher(
-        #     Marker, 'kitti_ego_car', queue_size=10)
+        self.ego_pub = self.create_publisher.Publisher(
+            Marker, 'kitti_ego_car', queue_size=10)
 
         # self.imu_pub = self.create_publisher.Publisher(
         #     Imu, 'kitti_imu', queue_size=10)
@@ -37,10 +36,7 @@ class KittiNode(Node):
         self.timer = self.create_timer(timer_period, self.timer_callback)
         self.frame = 0
 
-
     def timer_callback(self):
-        
-
         # rate = rospy.Rate(10)
         # rate = self.create_rate(10)
 
@@ -50,8 +46,7 @@ class KittiNode(Node):
         # tracker = {}  # save all obj odom
         # prev_imu_data = None
 
-
-    # while rclpy.ok():  # ???
+        # while rclpy.ok():  # ???
 
         # read file
         # df_tracking_frame = df_tracking[df_tracking.frame == frame]
@@ -111,7 +106,7 @@ class KittiNode(Node):
         # publish_camera(self.cam_pub, self.bridge, image, boxes_2d, types)
         publish_camera(self.cam_pub, self.bridge, image)
         publish_point_cloud(self.pcl_pub, point_cloud[::2])
-        # publish_ego_car(ego_pub)
+        publish_ego_car(self.ego_pub)
 
         # publish_imu(imu_pub, imu_data)
         # # gps rviz cannot visulize, only use rostopic echo

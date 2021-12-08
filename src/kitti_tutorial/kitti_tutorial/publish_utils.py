@@ -50,9 +50,7 @@ def publish_camera(cam_pub, bridge, image, borders_2d_cam2s=None, object_types=N
     cam_pub.publish(image_temp)
 
 
-
 def publish_point_cloud(pcl_pub, point_cloud):
-
     def create_point_cloud(points, parent_frame):
         """ Creates a point cloud message.
         Args:
@@ -73,18 +71,17 @@ def publish_point_cloud(pcl_pub, point_cloud):
         # In a PointCloud2 message, the point cloud is stored as an byte 
         # array. In order to unpack it, we also include some parameters 
         # which desribes the size of each individual point.
-    
-    
+
         ros_dtype = sensor_msgs.PointField.FLOAT32
         dtype = np.float32
-        itemsize = np.dtype(dtype).itemsize # A 32-bit float takes 4 bytes.
+        itemsize = np.dtype(dtype).itemsize  # A 32-bit float takes 4 bytes.
 
-        data = points.astype(dtype).tobytes() 
+        data = points.astype(dtype).tobytes()
 
         # The fields specify what the bytes represents. The first 4 bytes 
         # represents the x-coordinate, the next 4 the y-coordinate, etc.
         fields = [sensor_msgs.PointField(
-            name=n, offset=i*itemsize, datatype=ros_dtype, count=1)
+            name=n, offset=i * itemsize, datatype=ros_dtype, count=1)
             for i, n in enumerate('xyz')]
 
         # The PointCloud2 message also has a header which specifies which 
@@ -93,16 +90,15 @@ def publish_point_cloud(pcl_pub, point_cloud):
 
         return sensor_msgs.PointCloud2(
             header=header,
-            height=1, 
+            height=1,
             width=points.shape[0],
             is_dense=False,
             is_bigendian=False,
             fields=fields,
-            point_step=(itemsize * 3), # Every point consists of three float32s.
+            point_step=(itemsize * 3),  # Every point consists of three float32s.
             row_step=(itemsize * 3 * points.shape[0]),
             data=data
         )
-
 
     # header = Header()
     # header.stamp = rospy.Time.now()
@@ -124,11 +120,15 @@ def publish_ego_car(ego_car_pub):
     # publish left and right 45 degree FOV lines and ego car model mesh
     marker = Marker()
     marker.header.frame_id = FRAME_ID
-    marker.header.stamp = rospy.Time.now()
+    from builtin_interfaces.msg import Time
+    # marker.header.stamp = rospy.Time.now()
+    marker.header.stamp = Time()
 
     marker.id = 0
     marker.action = Marker.ADD
-    marker.lifetime = rospy.Duration()
+    # marker.lifetime = rospy.Duration()
+    from builtin_interfaces.msg import Duration
+    marker.lifetime = Duration()
     marker.type = Marker.LINE_STRIP
     # line
     marker.color.r = 0.0
