@@ -3,3 +3,6 @@
 /build/
 /install/
 /log/
+.idea
+/src/kitti_tutorial/resource/
+/src/kitti_tutorial/test/
