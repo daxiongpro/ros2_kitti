@@ -4,17 +4,25 @@
 
 ## 安装与使用
 
+#### 环境介绍
+
+- Ubuntu20.04 + python3.8
+
 #### 安装ros2 foxy
 
-```bash
-# 安装方式看参考文献 “ROS2 FOY 官网“、“小鱼ROS2 FOXY 教学”
-```
+- 安装方式看参考文献 “ROS2 FOY 官网“、“小鱼ROS2 FOXY 教学”
 
 #### 克隆项目
 
 ```bash
 git clone https://github.com/daxiongpro/my_ros_kitti.git
 cd my_ros_kitti
+```
+
+#### 安装相应的环境
+
+```bash
+pip install -r requirements.txt # requirements.txt 尚未填写
 ```
 
 #### 编译
@@ -42,7 +50,9 @@ ros2 run kitti_tutorial kitti_node
 rviz2
 ```
 
-- 在rviz2中依次点击 "ADD" -> "By topic" -> “{{ 你想要加入的topic}}”
+在rviz2中依次点击 "ADD" -> "By topic" -> “{{ 你想要加入的topic}}”
+
+![image-20211209102333219](img/image-20211209102333219.png)
 
 ## 参考文献
 
