@@ -1,4 +1,3 @@
-#!/usr/miniconda3/envs/ros2/bin/python
 # /home/daxiongpro/datasets/kitti_ros_tracking/data_tracking_image_2/training/image_02/0000/0000000000.png
 from .data_utils import *
 from .publish_utils import *
@@ -14,14 +13,11 @@ class KittiNode(Node):
     def __init__(self, name):
         super().__init__(name)
         self.get_logger().info("大家好，我是%s！" % name)
-        self.cam_pub = self.create_publisher(
-            Image, 'kitti_cam', 10)
+        self.cam_pub = self.create_publisher(Image, 'kitti_cam', 10)
 
-        self.pcl_pub = self.create_publisher(PointCloud2,
-                                             'kitti_point_cloud', 10)
+        self.pcl_pub = self.create_publisher(PointCloud2, 'kitti_point_cloud', 10)
         self.bridge = CvBridge()
-        self.ego_pub = self.create_publisher.Publisher(
-            Marker, 'kitti_ego_car', queue_size=10)
+        self.ego_pub = self.create_publisher(Marker, 'kitti_ego_car', 10)
 
         # self.imu_pub = self.create_publisher.Publisher(
         #     Imu, 'kitti_imu', queue_size=10)

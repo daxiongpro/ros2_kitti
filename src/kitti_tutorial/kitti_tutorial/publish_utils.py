@@ -1,5 +1,3 @@
-#!/usr/miniconda3/envs/ros2/bin/python
-
 # import rospy
 import rclpy
 from std_msgs.msg import Header
@@ -14,6 +12,8 @@ import numpy as np
 
 import sensor_msgs.msg as sensor_msgs
 import std_msgs.msg as std_msgs
+from builtin_interfaces.msg import Time
+from builtin_interfaces.msg import Duration
 
 FRAME_ID = "map"  # the base coordinate name in rviz
 RATE = 10
@@ -46,7 +46,7 @@ def publish_camera(cam_pub, bridge, image, borders_2d_cam2s=None, object_types=N
 
     image_temp = bridge.cv2_to_imgmsg(image, "bgr8")
     # header = Header(stamp=rospy.Time.now())
-    image_temp.header.frame_id = FRAME_ID
+    image_temp.header.frame_id = FRAME_ID  # mdzz wasted me so many time!!!!!!
     cam_pub.publish(image_temp)
 
 
@@ -120,14 +120,12 @@ def publish_ego_car(ego_car_pub):
     # publish left and right 45 degree FOV lines and ego car model mesh
     marker = Marker()
     marker.header.frame_id = FRAME_ID
-    from builtin_interfaces.msg import Time
     # marker.header.stamp = rospy.Time.now()
     marker.header.stamp = Time()
-
     marker.id = 0
     marker.action = Marker.ADD
     # marker.lifetime = rospy.Duration()
-    from builtin_interfaces.msg import Duration
+
     marker.lifetime = Duration()
     marker.type = Marker.LINE_STRIP
     # line
@@ -140,9 +138,9 @@ def publish_ego_car(ego_car_pub):
     marker.points = []
 
     # check the kitti axis model
-    marker.points.append(Point(5, -5, 0))  # left up
-    marker.points.append(Point(0, 0, 0))  # center
-    marker.points.append(Point(5, 5, 0))  # right up
+    marker.points.append(Point(x=5.0, y=-5.0, z=0.0))  # left up
+    marker.points.append(Point(x=0.0, y=0.0, z=0.0))  # center
+    marker.points.append(Point(x=5.0, y=5.0, z=0.0))  # right up
 
     ego_car_pub.publish(marker)
 
