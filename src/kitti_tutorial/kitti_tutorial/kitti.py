@@ -19,9 +19,8 @@ class KittiNode(Node):
         self.pcl_pub = self.create_publisher(PointCloud2, 'kitti_point_cloud', 10)
         self.bridge = CvBridge()
         self.ego_pub = self.create_publisher(Marker, 'kitti_ego_car', 10)
-        # self.imu_pub = self.create_publisher(Imu, 'kitti_imu', 10)
-        # self.gps_pub = self.create_publisher.Publisher(
-        #     NavSatFix, 'kitti_gps', queue_size=10)
+        self.imu_pub = self.create_publisher(Imu, 'kitti_imu', 10)
+        self.gps_pub = self.create_publisher(NavSatFix, 'kitti_gps', 10)
         # self.box3d_pub = self.create_publisher.Publisher(
         #     MarkerArray, 'kitti_3dbox', queue_size=10)
         # self.imu_odom_pub = self.create_publisher.Publisher(MarkerArray,
@@ -61,8 +60,8 @@ class KittiNode(Node):
 
         point_cloud = read_point_cloud(os.path.join(
             DATA_PATH, 'velodyne_points/data/%010d.bin' % self.frame))
-        # # include imu and gpss info
-        # imu_data = read_imu(os.path.join(DATA_PATH, 'oxts/data/%010d.txt' % self.frame))
+        # include imu and gpss info
+        imu_data = read_imu(os.path.join(DATA_PATH, 'oxts/data/%010d.txt' % self.frame))
 
         # corner_3d_velos = []
         # centers = {}  # current frame tracker. track id:center
@@ -100,10 +99,10 @@ class KittiNode(Node):
         # publish_camera(self.cam_pub, self.bridge, image, boxes_2d, types)
         publish_camera(self.cam_pub, self.bridge, image)
         publish_point_cloud(self.pcl_pub, point_cloud[::2])
-        # publish_ego_car(self.ego_pub)
-        # publish_imu(self.imu_pub, imu_data)
-        # # gps rviz cannot visulize, only use rostopic echo
-        # publish_gps(gps_pub, imu_data)
+        publish_ego_car(self.ego_pub)
+        publish_imu(self.imu_pub, imu_data)
+        # gps rviz cannot visulize, only use rostopic echo
+        publish_gps(self.gps_pub, imu_data)
         # publish_3dbox(box3d_pub, corner_3d_velos, track_ids, types)
         # publish_imu_odom(imu_odom_pub, tracker, centers)
 

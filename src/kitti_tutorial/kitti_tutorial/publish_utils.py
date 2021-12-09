@@ -1,12 +1,10 @@
-# import rospy
-import rclpy
+import math
 from std_msgs.msg import Header
 from visualization_msgs.msg import Marker, MarkerArray
 from sensor_msgs.msg import Image, PointCloud2, Imu, NavSatFix, PointField
 from geometry_msgs.msg import Point
-# import sensor_msgs.point_cloud2 as pcl2
 from cv_bridge import CvBridge
-# import tf
+
 import cv2
 import numpy as np
 
@@ -145,47 +143,67 @@ def publish_ego_car(ego_car_pub):
     ego_car_pub.publish(marker)
 
 
-def publish_imu(imu_pub, imu_data, log=False):
+def publish_imu(imu_pub, imu_data):
     """
     Publish IMU data
     http://docs.ros.org/melodic/api/sensor_msgs/html/msg/Imu.html
     """
+
+    def quaternion_from_euler(roll, pitch, yaw):
+        """
+        https://gist.github.com/salmagro/2e698ad4fbf9dae40244769c5ab74434
+        Converts euler roll, pitch, yaw to quaternion (w in last place)
+        quat = [x, y, z, w]
+        Bellow should be replaced when porting for ROS 2 Python tf_conversions is done.
+        """
+        cy = math.cos(yaw * 0.5)
+        sy = math.sin(yaw * 0.5)
+        cp = math.cos(pitch * 0.5)
+        sp = math.sin(pitch * 0.5)
+        cr = math.cos(roll * 0.5)
+        sr = math.sin(roll * 0.5)
+
+        q = [0] * 4
+        q[0] = cy * cp * cr + sy * sp * sr
+        q[1] = cy * cp * sr - sy * sp * cr
+        q[2] = sy * cp * sr + cy * sp * cr
+        q[3] = sy * cp * cr - cy * sp * sr
+
+        return q
+
     imu = Imu()
     imu.header.frame_id = FRAME_ID
     imu.header.stamp = Time()
-    q = tf.transformations.quaternion_from_euler(float(imu_data.roll),
-                                                 float(imu_data.pitch),
-                                                 float(imu_data.yaw))  # prevent the data from being overwritten
+    q = quaternion_from_euler(float(imu_data.roll),
+                              float(imu_data.pitch),
+                              float(imu_data.yaw))  # prevent the data from being overwritten
+
     imu.orientation.x = q[0]
     imu.orientation.y = q[1]
     imu.orientation.z = q[2]
     imu.orientation.w = q[3]
-    imu.linear_acceleration.x = imu_data.af
-    imu.linear_acceleration.y = imu_data.al
-    imu.linear_acceleration.z = imu_data.au
-    imu.angular_velocity.x = imu_data.wf
-    imu.angular_velocity.y = imu_data.wl
-    imu.angular_velocity.z = imu_data.wu
+    imu.linear_acceleration.x = float(imu_data.af)
+    imu.linear_acceleration.y = float(imu_data.al)
+    imu.linear_acceleration.z = float(imu_data.au)
+    imu.angular_velocity.x = float(imu_data.wf)
+    imu.angular_velocity.y = float(imu_data.wl)
+    imu.angular_velocity.z = float(imu_data.wu)
 
     imu_pub.publish(imu)
-    if log:
-        rospy.loginfo("imu msg published")
 
 
-def publish_gps(gps_pub, gps_data, log=False):
+def publish_gps(gps_pub, gps_data):
     """
     Publish GPS data
     """
     gps = NavSatFix()
     gps.header.frame_id = FRAME_ID
     gps.header.stamp = Time()
-    gps.latitude = gps_data.lat
-    gps.longitude = gps_data.lon
-    gps.altitude = gps_data.alt
+    gps.latitude = float(gps_data.lat)
+    gps.longitude = float(gps_data.lon)
+    gps.altitude = float(gps_data.alt)
 
     gps_pub.publish(gps)
-    if log:
-        rospy.loginfo("gps msg published")
 
 
 def publish_3dbox(box3d_pub, corners_3d_velos, track_ids, types=None, publish_id=True):
