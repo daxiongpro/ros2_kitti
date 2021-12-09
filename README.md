@@ -22,6 +22,7 @@ cd my_ros_kitti
 #### 安装相应的环境
 
 ```bash
+conda deactivate # 选择python基环境
 pip install -r requirements.txt # requirements.txt 尚未填写
 ```
 
