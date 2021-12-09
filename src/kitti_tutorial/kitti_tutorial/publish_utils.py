@@ -152,8 +152,9 @@ def publish_imu(imu_pub, imu_data, log=False):
     """
     imu = Imu()
     imu.header.frame_id = FRAME_ID
-    imu.header.stamp = rospy.Time.now()
-    q = tf.transformations.quaternion_from_euler(float(imu_data.roll), float(imu_data.pitch),
+    imu.header.stamp = Time()
+    q = tf.transformations.quaternion_from_euler(float(imu_data.roll),
+                                                 float(imu_data.pitch),
                                                  float(imu_data.yaw))  # prevent the data from being overwritten
     imu.orientation.x = q[0]
     imu.orientation.y = q[1]
@@ -177,7 +178,7 @@ def publish_gps(gps_pub, gps_data, log=False):
     """
     gps = NavSatFix()
     gps.header.frame_id = FRAME_ID
-    gps.header.stamp = rospy.Time.now()
+    gps.header.stamp = Time()
     gps.latitude = gps_data.lat
     gps.longitude = gps_data.lon
     gps.altitude = gps_data.alt
@@ -270,10 +271,10 @@ def publish_imu_odom(imu_odom_pub, tracker, centers):
 
         marker = Marker()
         marker.header.frame_id = FRAME_ID
-        marker.header.stamp = rospy.Time.now()
+        marker.header.stamp = Time()
 
         marker.action = Marker.ADD
-        marker.lifetime = rospy.Duration(LIFETIME)
+        marker.lifetime = Duration(LIFETIME)
         marker.type = Marker.LINE_STRIP
         marker.id = track_id
 
