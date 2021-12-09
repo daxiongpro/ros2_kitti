@@ -8,6 +8,20 @@
 
 - Ubuntu20.04 + python3.8
 
+#### 数据集
+
+kitti_ros_tracking
+├── data_tracking_calib
+│   ├── testing
+│   └── training
+├── data_tracking_image_2
+│   ├── testing
+│   └── training
+├── data_tracking_label_2.zip
+└── data_tracking_velodyne
+    ├── testing
+    └── training
+
 #### 安装ros2 foxy
 
 - 安装方式看参考文献 “ROS2 FOY 官网“、“小鱼ROS2 FOXY 教学”
@@ -51,7 +65,7 @@ ros2 run kitti_tutorial kitti_node
 rviz2
 ```
 
-在rviz2中依次点击 "ADD" -> "By topic" -> “{{ 你想要加入的topic}}”
+- 在rviz2中依次点击 "ADD" -> "By topic" -> “{{ 你想要加入的topic}}”
 
 ![image-20211209102333219](img/image-20211209102333219.png)
 
