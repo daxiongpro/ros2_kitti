@@ -6,3 +6,8 @@
 .idea
 /src/kitti_tutorial/resource/
 /src/kitti_tutorial/test/
+/src/algorithm/test/
+/src/algorithm/resource/
+/src/algorithm/test/
+/src/algorithm/setup.cfg
+/src/algorithm/package.xml
