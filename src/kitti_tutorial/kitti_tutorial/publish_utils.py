@@ -118,12 +118,9 @@ def publish_ego_car(ego_car_pub):
     # publish left and right 45 degree FOV lines and ego car model mesh
     marker = Marker()
     marker.header.frame_id = FRAME_ID
-    # marker.header.stamp = rospy.Time.now()
     marker.header.stamp = Time()
     marker.id = 0
     marker.action = Marker.ADD
-    # marker.lifetime = rospy.Duration()
-
     marker.lifetime = Duration()
     marker.type = Marker.LINE_STRIP
     # line
@@ -217,10 +214,10 @@ def publish_3dbox(box3d_pub, corners_3d_velos, track_ids, types=None, publish_id
         # 3d box
         marker = Marker()
         marker.header.frame_id = FRAME_ID
-        marker.header.stamp = rospy.Time.now()
+        marker.header.stamp = Time()
         marker.id = i
         marker.action = Marker.ADD
-        marker.lifetime = rospy.Duration(LIFETIME)
+        marker.lifetime = Duration(LIFETIME)
         marker.type = Marker.LINE_LIST
 
         b, g, r = DETECTION_COLOR_MAP[types[i]]
@@ -248,11 +245,11 @@ def publish_3dbox(box3d_pub, corners_3d_velos, track_ids, types=None, publish_id
             track_id = track_ids[i]
             text_marker = Marker()
             text_marker.header.frame_id = FRAME_ID
-            text_marker.header.stamp = rospy.Time.now()
+            text_marker.header.stamp = Time()
 
             text_marker.id = track_id + 1000
             text_marker.action = Marker.ADD
-            text_marker.lifetime = rospy.Duration(LIFETIME)
+            text_marker.lifetime = Duration(LIFETIME)
             text_marker.type = Marker.TEXT_VIEW_FACING
 
             p4 = corners_3d_velo[4]  # upper front left corner
