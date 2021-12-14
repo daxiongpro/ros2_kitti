@@ -1,4 +1,4 @@
-import point_cloud2 as pc2
+from . import point_cloud2 as pc2
 import numpy as np
 from sensor_msgs.msg import PointCloud2
 import rclpy
@@ -21,6 +21,8 @@ class PC2Subscriber(Node):
             pc_list.append([p[0], p[1], p[2]])
 
         pcd = np.asarray(pc_list)
+
+        print(pcd.shape)
 
 
 def main(args=None):
