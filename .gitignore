@@ -12,3 +12,5 @@
 /src/algorithm/setup.cfg
 /src/algorithm/package.xml
 *__pycache__*
+/src/rslidar_msg/
+/src/rslidar_sdk/
