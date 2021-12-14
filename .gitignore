@@ -11,3 +11,4 @@
 /src/algorithm/test/
 /src/algorithm/setup.cfg
 /src/algorithm/package.xml
+*__pycache__*
