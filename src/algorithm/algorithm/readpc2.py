@@ -3,12 +3,14 @@ import numpy as np
 from sensor_msgs.msg import PointCloud2
 import rclpy
 from rclpy.node import Node
+from src.kitti_tutorial.kitti_tutorial.publish_utils import publish_point_cloud
 
 
 class PC2Subscriber(Node):
     def __init__(self):
         super().__init__('pc2_subscriber')
         self.subscription = self.create_subscription(PointCloud2, 'rslidar_points', self.listener_callback, 10)
+        self.pcl_pub = self.create_publisher(PointCloud2, 'my_point_cloud', 10)
         # self.subscription  # prevent unused variable warning
 
     # def listener_callback(self, msg):
@@ -22,7 +24,8 @@ class PC2Subscriber(Node):
 
         pcd = np.asarray(pc_list)
 
-        print(pcd.shape)
+        publish_point_cloud(self.pcl_pub, pcd, frame_id='rslidar')
+        # print(pcd.shape)
 
 
 def main(args=None):

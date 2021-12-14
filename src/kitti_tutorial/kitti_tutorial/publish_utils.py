@@ -48,7 +48,7 @@ def publish_camera(cam_pub, bridge, image, borders_2d_cam2s=None, object_types=N
     cam_pub.publish(image_temp)
 
 
-def publish_point_cloud(pcl_pub, point_cloud):
+def publish_point_cloud(pcl_pub, point_cloud, frame_id='map'):
     def create_point_cloud(points, parent_frame):
         """ Creates a point cloud message.
         Args:
@@ -110,7 +110,7 @@ def publish_point_cloud(pcl_pub, point_cloud):
     #           ]
     # pcl_pub.publish(pcl2.create_cloud_xyz32(header, point_cloud[::3]))
     # pcl_pub.publish(pcl2.create_cloud(header, fields, point_cloud[::3]))
-    pcd = create_point_cloud(point_cloud[:, :3], 'map')
+    pcd = create_point_cloud(point_cloud[:, :3], frame_id)
     pcl_pub.publish(pcd)
 
 
