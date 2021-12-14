@@ -23,3 +23,5 @@
 [解决思路](https://answers.ros.org/question/357944/why-is-point_cloud2py-missing-from-sensor_msgs-in-ros2/)
 
 [point_cloud2.py文件](https://github.com/ros/common_msgs/blob/noetic-devel/sensor_msgs/src/sensor_msgs/point_cloud2.py)
+
+[速腾激光雷达github](https://github.com/RoboSense-LiDAR/rslidar_sdk)
