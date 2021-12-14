@@ -98,18 +98,6 @@ def publish_point_cloud(pcl_pub, point_cloud, frame_id='map'):
             data=data
         )
 
-    # header = Header()
-    # header.stamp = rospy.Time.now()
-
-    # header.frame_id = FRAME_ID
-
-    # fields = [PointField('x', 0, PointField.FLOAT32, 1),
-    #           PointField('y', 4, PointField.FLOAT32, 1),
-    #           PointField('z', 8, PointField.FLOAT32, 1),
-    #           PointField('intensity', 12, PointField.FLOAT32, 1)
-    #           ]
-    # pcl_pub.publish(pcl2.create_cloud_xyz32(header, point_cloud[::3]))
-    # pcl_pub.publish(pcl2.create_cloud(header, fields, point_cloud[::3]))
     pcd = create_point_cloud(point_cloud[:, :3], frame_id)
     pcl_pub.publish(pcd)
 
