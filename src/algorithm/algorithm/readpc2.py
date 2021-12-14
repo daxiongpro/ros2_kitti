@@ -1,8 +1,5 @@
 import point_cloud2 as pc2
-# import pcl
-# import sensor_msgs.msg._point_field
 import numpy as np
-
 from sensor_msgs.msg import PointCloud2
 import rclpy
 from rclpy.node import Node
@@ -18,13 +15,12 @@ class PC2Subscriber(Node):
     #     self.get_logger().info('I heard: "%s"' % msg.data)
 
     def listener_callback(self, pc: PointCloud2):
-        print(pc.data)
         pc = pc2.read_points(pc, skip_nans=True, field_names=("x", "y", "z"))
         pc_list = []
         for p in pc:
             pc_list.append([p[0], p[1], p[2]])
 
-        return pc_list
+        pcd = np.asarray(pc_list)
 
 
 def main(args=None):
