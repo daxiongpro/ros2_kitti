@@ -208,7 +208,7 @@ def publish_3dbox(box3d_pub, corners_3d_velos, track_ids, types=None, publish_id
         marker.header.stamp = Time()
         marker.id = i
         marker.action = Marker.ADD
-        marker.lifetime = Duration(LIFETIME)
+        marker.lifetime = Duration()
         marker.type = Marker.LINE_LIST
 
         b, g, r = DETECTION_COLOR_MAP[types[i]]
@@ -226,9 +226,9 @@ def publish_3dbox(box3d_pub, corners_3d_velos, track_ids, types=None, publish_id
         marker.points = []
         for l in LINES:
             p1 = corners_3d_velo[l[0]]
-            marker.points.append(Point(p1[0], p1[1], p1[2]))
+            marker.points.append(Point(x=p1[0], y=p1[1], z=p1[2]))
             p2 = corners_3d_velo[l[1]]
-            marker.points.append(Point(p2[0], p2[1], p2[2]))
+            marker.points.append(Point(x=p2[0], y=p2[1], z=p2[2]))
         marker_array.markers.append(marker)
 
         # add track id
@@ -238,9 +238,9 @@ def publish_3dbox(box3d_pub, corners_3d_velos, track_ids, types=None, publish_id
             text_marker.header.frame_id = FRAME_ID
             text_marker.header.stamp = Time()
 
-            text_marker.id = track_id + 1000
+            text_marker.id = int(track_id) + 1000
             text_marker.action = Marker.ADD
-            text_marker.lifetime = Duration(LIFETIME)
+            text_marker.lifetime = Duration()
             text_marker.type = Marker.TEXT_VIEW_FACING
 
             p4 = corners_3d_velo[4]  # upper front left corner
@@ -251,9 +251,9 @@ def publish_3dbox(box3d_pub, corners_3d_velos, track_ids, types=None, publish_id
 
             text_marker.text = str(track_id)
 
-            text_marker.scale.x = 1
-            text_marker.scale.y = 1
-            text_marker.scale.z = 1
+            text_marker.scale.x = 1.0
+            text_marker.scale.y = 1.0
+            text_marker.scale.z = 1.0
 
             if types is None:
                 text_marker.color.r = 0.0
@@ -280,9 +280,9 @@ def publish_imu_odom(imu_odom_pub, tracker, centers):
         marker.header.stamp = Time()
 
         marker.action = Marker.ADD
-        marker.lifetime = Duration(LIFETIME)
+        marker.lifetime = Duration()
         marker.type = Marker.LINE_STRIP
-        marker.id = track_id
+        marker.id = int(track_id)
 
         marker.color.r = 1.0
         marker.color.g = 1.0
@@ -292,7 +292,7 @@ def publish_imu_odom(imu_odom_pub, tracker, centers):
 
         marker.points = []
         for p in tracker[track_id].locations:
-            marker.points.append(Point(p[0], p[1], 0))
+            marker.points.append(Point(x=float(p[0]), y=float(p[1]), z=0.0))
 
         marker_array.markers.append(marker)
     imu_odom_pub.publish(marker_array)
