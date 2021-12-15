@@ -3,7 +3,7 @@ import numpy as np
 from sensor_msgs.msg import PointCloud2
 import rclpy
 from rclpy.node import Node
-from src.kitti_tutorial.kitti_tutorial.publish_utils import publish_point_cloud
+from .publish_utils import publish_point_cloud
 
 
 class PC2Subscriber(Node):
@@ -25,7 +25,7 @@ class PC2Subscriber(Node):
         pcd = np.asarray(pc_list)
 
         publish_point_cloud(self.pcl_pub, pcd, frame_id='rslidar')
-        # print(pcd.shape)
+        print(pcd.shape)
 
 
 def main(args=None):
