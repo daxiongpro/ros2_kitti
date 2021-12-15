@@ -33,6 +33,11 @@ kitti_raw_data
 
 - 安装方式看参考文献 “ROS2 FOY 官网“、“小鱼ROS2 FOXY 教学”
 
+- ```bash
+  # source以下ros的环境，如果不想每次都source，可以加入.bashrc或者.zshrc的环境变量中
+  source /opt/ros/foxy/setup.bash # source /opt/ros/foxy/setup.zsh # 如果你电脑装了zsh
+  ```
+
 #### 克隆项目
 
 ```bash
@@ -52,12 +57,50 @@ pip install -r requirements.txt # requirements.txt 尚未填写
 - 打开`src/kitti_tutorial/kitti_tutorial/kitti.py`
 - 修改变量名`DATASET_PATH`为你自己的目录
 
+#### 新建工作空间&&创建package
+
+```bash
+mkdir {{ your work space name }} && cd {{ your work space name }} # mkdir colcon_ws && cd colcon_ws
+mkdir src && cd src
+ros2 pkg create {{ your package name}} --build-type ament_python --dependencies rclpy # ros2 pkg create kitti_tutorial --build-type ament_python --dependencies rclpy 
+cd ..
+colcon build
+cd src 
+cd {{ your package name}} cd kitti_tutorial
+```
+
+#### 复制代码到你所创建的package
+
+* 例如：把kitti_tutorial文件夹复制到package包下
+
+* 目录结构如下:
+
+```bash
+  colcon_ws
+  ├── build
+  ├── install
+  ├── log
+  └── src
+      └── kitti_tutorial
+          ├── kitti_tutorial
+          │   ├── __init__.py
+          │   ├── kitti.py
+          │   ├── xxx.py
+          │   ├── ...
+          ├── package.xml
+          ├── resource
+          ├── setup.cfg
+          ├── setup.py
+          └── test
+  
+```
+
 #### 编译
 
 ```bash
-# source以下ros的环境，如果不想每次都source，可以加入.bashrc或者.zshrc的环境变量中
-source /opt/ros/foxy/setup.bash # source /opt/ros/foxy/setup.zsh # 如果你电脑装了zsh
-# 编译
+# 返回顶层工作空间“colcon_ws”
+cd .. && cd ..
+# 编译, 在“colcon_ws”目录下
 colcon build
 ```
 
