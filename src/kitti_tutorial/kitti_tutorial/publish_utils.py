@@ -16,8 +16,11 @@ from builtin_interfaces.msg import Duration
 FRAME_ID = "map"  # the base coordinate name in rviz
 RATE = 10
 LIFETIME = 1.0 / RATE  # 1/rate
-DETECTION_COLOR_MAP = {'Car': (255, 255, 0), 'Pedestrian': (0, 226, 255),
-                       'Cyclist': (141, 40, 255)}  # color for detection, in format bgr
+DETECTION_COLOR_MAP = {
+    'Car': (255, 255, 0),
+    'Pedestrian': (0, 226, 255),
+    'Cyclist': (141, 40, 255)
+}  # color for detection, in format bgr
 
 # connect vertic
 LINES = [[0, 1], [1, 2], [2, 3], [3, 0]]  # lower face

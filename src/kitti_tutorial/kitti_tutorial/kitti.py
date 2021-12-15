@@ -32,21 +32,16 @@ class KittiNode(Node):
         # rate = rospy.Rate(10)
         # rate = self.create_rate(10)
 
-        # df_tracking = read_tracking('/root/kitti/training/label_02/0000.txt')
         # calib = Calibration('/root/kitti/RawData/2011_09_26/', from_video=True)
-        #
+
         # tracker = {}  # save all obj odom
         # prev_imu_data = None
 
         # while rclpy.ok():  # ???
 
-        # read file
-        # df_tracking_frame = df_tracking[df_tracking.frame == self.frame]
-        #
-        # boxes_2d = np.array(df_tracking_frame[['bbox_left', 'bbox_top', 'bbox_right', 'bbox_bottom']])
         # boxes_3d = np.array(df_tracking_frame[['height', 'width', 'length', 'pos_x', 'pos_y', 'pos_z', 'rot_y']])
         #
-        # types = np.array(df_tracking_frame['type'])
+
         # track_ids = np.array(df_tracking_frame['track_id'])
         # track_ids = np.append(track_ids, 1000)  # append ego car
 
@@ -55,7 +50,8 @@ class KittiNode(Node):
         point_cloud = read_point_cloud(os.path.join(DATA_PATH, 'velodyne_points/data/%010d.bin' % self.frame))
         # include imu and gps info
         imu_data = read_imu(os.path.join(DATA_PATH, 'oxts/data/%010d.txt' % self.frame))
-
+        boxes_2d, types = get_2d_box_and_type(path=os.path.join(DATA_PATH, 'training/label_02/0000.txt'),
+                                              frame=self.frame)
         # corner_3d_velos = []
         # centers = {}  # current frame tracker. track id:center
         # for track_id, box_3d in zip(track_ids, boxes_3d):
@@ -88,8 +84,8 @@ class KittiNode(Node):
         # prev_imu_data = imu_data
 
         # publish
-        # publish_camera(self.cam_pub, self.bridge, image, boxes_2d, types)
-        publish_camera(self.cam_pub, self.bridge, image)
+        publish_camera(self.cam_pub, self.bridge, image, boxes_2d, types)
+        # publish_camera(self.cam_pub, self.bridge, image)
         publish_point_cloud(self.pcl_pub, point_cloud[::2])
         publish_ego_car(self.ego_pub)
         publish_imu(self.imu_pub, imu_data)

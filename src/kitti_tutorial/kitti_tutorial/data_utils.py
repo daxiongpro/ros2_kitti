@@ -34,3 +34,11 @@ def read_imu(path):
     df = pd.read_csv(path, header=None, sep=' ')
     df.columns = IMU_COLUMN_NAMES
     return df
+
+
+def get_2d_box_and_type(path, frame):
+    df_tracking = read_tracking(path)
+    df_tracking_frame = df_tracking[df_tracking.frame == frame]
+    boxes_2d = np.array(df_tracking_frame[['bbox_left', 'bbox_top', 'bbox_right', 'bbox_bottom']])
+    types = np.array(df_tracking_frame['type'])
+    return boxes_2d, types
