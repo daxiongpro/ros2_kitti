@@ -50,15 +50,15 @@ class KittiNode(Node):
         # gps rviz cannot visulize, only use rostopic echo
         publish_gps(self.gps_pub, imu_data)
         publish_3dbox(self.box3d_pub, corner_3d_velos, track_ids, types)
-        publish_imu_odom(self.imu_odom_pub, tracker, centers)
+        # publish_imu_odom(self.imu_odom_pub, tracker, centers)
 
         self.get_logger().info("kitti published %d " % self.frame)
         self.frame += 1
-        self.frame %= 154
-        # if self.frame == 154:
-        #     self.frame = 0
-        #     for track_id in tracker:
-        #         tracker[track_id].reset()
+        # self.frame %= 154
+        if self.frame == 154:
+            self.frame = 0
+            for track_id in tracker:
+                tracker[track_id].reset()
 
 
 def main(args=None):

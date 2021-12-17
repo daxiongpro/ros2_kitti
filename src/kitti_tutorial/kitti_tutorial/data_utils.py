@@ -65,7 +65,6 @@ def get_3d_info(df_tracking_frame, carlib_path, imu_data):
         centers[track_id] = np.mean(corner_3d_velo, axis=0)[:2]
 
         # for ego car, we set its id = -1, center [0,0]
-
         centers[-1] = np.array([0, 0])
 
         if prev_imu_data is None:
@@ -74,11 +73,10 @@ def get_3d_info(df_tracking_frame, carlib_path, imu_data):
         else:
             displacement = 0.1 * np.linalg.norm(imu_data[['vf', 'vl']])
             yaw_change = float(imu_data.yaw - prev_imu_data.yaw)
-            print(track_id)
+            # print(track_id)
             for track_id in centers:  # for one frame id
                 if track_id in tracker:
-                    tracker[track_id].update(
-                        centers[track_id], displacement, yaw_change)
+                    tracker[track_id].update(centers[track_id], displacement, yaw_change)
                 else:
                     tracker[track_id] = Object(centers[track_id], 20)
             for track_id in tracker:  # for whole ids tracked by prev frame,but current frame did not

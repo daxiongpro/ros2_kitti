@@ -112,7 +112,7 @@ def publish_ego_car(ego_car_pub):
     marker.header.stamp = Time()
     marker.id = 0
     marker.action = Marker.ADD
-    marker.lifetime = Duration()
+    marker.lifetime = Duration(sec=int(LIFETIME))
     marker.type = Marker.LINE_STRIP
     # line
     marker.color.r = 0.0
@@ -208,7 +208,7 @@ def publish_3dbox(box3d_pub, corners_3d_velos, track_ids, types=None, publish_id
         marker.header.stamp = Time()
         marker.id = i
         marker.action = Marker.ADD
-        marker.lifetime = Duration()
+        marker.lifetime = Duration(sec=int(LIFETIME))
         marker.type = Marker.LINE_LIST
 
         b, g, r = DETECTION_COLOR_MAP[types[i]]
@@ -240,16 +240,15 @@ def publish_3dbox(box3d_pub, corners_3d_velos, track_ids, types=None, publish_id
 
             text_marker.id = int(track_id) + 1000
             text_marker.action = Marker.ADD
-            text_marker.lifetime = Duration()
+            text_marker.lifetime = Duration(sec=int(LIFETIME))
             text_marker.type = Marker.TEXT_VIEW_FACING
+
 
             p4 = corners_3d_velo[4]  # upper front left corner
 
             text_marker.pose.position.x = p4[0]
             text_marker.pose.position.y = p4[1]
-            text_marker.pose.position.z = p4[2] + 0.5
-
-            text_marker.text = str(track_id)
+            text_marker.pose.position.z = p4[2] + 0.5 #           text_marker.text = str(track_id)
 
             text_marker.scale.x = 1.0
             text_marker.scale.y = 1.0
@@ -280,7 +279,7 @@ def publish_imu_odom(imu_odom_pub, tracker, centers):
         marker.header.stamp = Time()
 
         marker.action = Marker.ADD
-        marker.lifetime = Duration()
+        marker.lifetime = Duration(sec=int(LIFETIME))
         marker.type = Marker.LINE_STRIP
         marker.id = int(track_id)
 
