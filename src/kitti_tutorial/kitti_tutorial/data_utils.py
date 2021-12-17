@@ -86,4 +86,4 @@ def get_3d_info(df_tracking_frame, carlib_path, imu_data):
                     tracker[track_id].update(None, displacement, yaw_change)
 
         prev_imu_data = imu_data
-        return corner_3d_velos, track_ids, tracker, centers
+    return corner_3d_velos, track_ids, tracker, centers

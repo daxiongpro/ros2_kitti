@@ -53,7 +53,6 @@ class KittiNode(Node):
         publish_imu_odom(self.imu_odom_pub, tracker, centers)
 
         self.get_logger().info("kitti published %d " % self.frame)
-
         self.frame += 1
         self.frame %= 154
         # if self.frame == 154:
