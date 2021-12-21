@@ -6,6 +6,7 @@ from rclpy.node import Node
 from .publish_utils import publish_point_cloud
 from .detection_tracking import detection_and_tracking
 
+
 class PC2Subscriber(Node):
     def __init__(self):
         super().__init__('pc2_subscriber')
@@ -17,16 +18,17 @@ class PC2Subscriber(Node):
     #     self.get_logger().info('I heard: "%s"' % msg.data)
 
     def listener_callback(self, pc: PointCloud2):
-        pc = pc2.read_points(pc, skip_nans=True, field_names=("x", "y", "z"))
+        pc = pc2.read_points(pc, skip_nans=True, field_names=("x", "y", "z", "intensity"))
         pc_list = []
         for p in pc:
-            pc_list.append([p[0], p[1], p[2]])
+            pc_list.append([p[0], p[1], p[2], p[3] / 255.0])
 
         pcd = np.asarray(pc_list)
         res = detection_and_tracking(pcd)
 
         # publish_point_cloud(self.pcl_pub, pcd, frame_id='rslidar')
         # print(pcd.shape)
+        res = [(item.t, item.h, item.w, item.l, item.id) for item in res]
         print(res)
 
 
