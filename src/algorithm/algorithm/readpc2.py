@@ -4,7 +4,7 @@ from sensor_msgs.msg import PointCloud2
 import rclpy
 from rclpy.node import Node
 from .publish_utils import publish_point_cloud
-
+from .detection_tracking import detection_and_tracking
 
 class PC2Subscriber(Node):
     def __init__(self):
@@ -23,9 +23,11 @@ class PC2Subscriber(Node):
             pc_list.append([p[0], p[1], p[2]])
 
         pcd = np.asarray(pc_list)
+        res = detection_and_tracking(pcd)
 
-        publish_point_cloud(self.pcl_pub, pcd, frame_id='rslidar')
-        print(pcd.shape)
+        # publish_point_cloud(self.pcl_pub, pcd, frame_id='rslidar')
+        # print(pcd.shape)
+        print(res)
 
 
 def main(args=None):

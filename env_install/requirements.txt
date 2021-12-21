@@ -1,0 +1,19 @@
+numpy
+# torch==1.4.0
+# torchvision==0.5.0
+tensorboardX
+easydict
+pyyaml
+scikit-image
+tqdm
+numba==0.43.1
+llvmlite==0.32.1 			
+filterpy==1.4.5
+scikit-learn==0.19.2
+matplotlib==2.2.3
+pillow
+opencv-python
+# opencv-python==3.4.3.18
+glob2==0.6
+scikit-video
+
