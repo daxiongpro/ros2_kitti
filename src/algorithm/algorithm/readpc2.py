@@ -28,7 +28,8 @@ class PC2Subscriber(Node):
 
         # publish_point_cloud(self.pcl_pub, pcd, frame_id='rslidar')
         # print(pcd.shape)
-        res = [(item.t, item.h, item.w, item.l, item.id) for item in res]
+        # res = [(item.t, item.h, item.w, item.l, item.id) for item in res]
+        res = [item.type for item in res]
         print(res)
 
 
