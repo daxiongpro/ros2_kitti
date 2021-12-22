@@ -14,3 +14,4 @@
 *__pycache__*
 /src/rslidar_msg/
 /src/rslidar_sdk/
+*.png
